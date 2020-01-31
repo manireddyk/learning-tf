@@ -1,0 +1,26 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "ami_name": "imagefrompacker",
+            "ami_description": "image from packer",
+            "access_key": "AKIA5CGV4OEE3ES5BBWP",
+            "secret_key": "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",
+            "region": "us-east-2",
+            "instance_type": "t2.micro",
+            "source_ami": "ami-0d5d9d301c853a04a",
+            "ssh_username": "ubuntu"
+    }],
+    "provisioners":[
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get update",
+                "sudo apt-get install openjdk-8-jdk -y",
+                "sudo apt-get install tomcat8 -y"
+            ]
+        }
+    ]
+
+}
+
